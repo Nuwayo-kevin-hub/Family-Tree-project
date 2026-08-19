@@ -1,0 +1,540 @@
+/* ============================================
+   ROOT ADMIN DASHBOARD – Professional Design
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.root-dashboard {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f4f8;
+  min-height: 100vh;
+  padding: 2rem 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.root-dashboard h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.root-dashboard .welcome {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 2px solid #e9edf2;
+  font-weight: 400;
+}
+
+/* ============================================
+   STATS CONTAINER
+   ============================================ */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* ============================================
+   STATS CARD (used in StatsCard component)
+   ============================================ */
+.stats-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.5rem 1.5rem 1.2rem;
+  border: 1px solid #e9edf2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0f3b5e, #2a9d8f);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.08);
+  border-color: #d0d9e4;
+}
+
+.stats-card:hover::before {
+  opacity: 1;
+}
+
+.stats-card .stats-icon {
+  font-size: 2.2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: #f1f5f9;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s ease;
+}
+
+.stats-card:hover .stats-icon {
+  background: #e8f0fe;
+}
+
+.stats-card .stats-info {
+  flex: 1;
+}
+
+.stats-card .stats-info h4 {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0 0 0.1rem;
+}
+
+.stats-card .stats-info h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Individual stat card icon background colors */
+.stats-card:nth-child(1) .stats-icon { background: #e8f0fe; }
+.stats-card:nth-child(2) .stats-icon { background: #e6f7ed; }
+.stats-card:nth-child(3) .stats-icon { background: #fef3e8; }
+.stats-card:nth-child(4) .stats-icon { background: #e6f7f0; }
+
+/* ============================================
+   CARD BOX (FamilyInfo, QuickActions, RecentActivity)
+   ============================================ */
+.card-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
+  border: 1px solid #e9edf2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  margin-bottom: 1.8rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card-box:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  border-color: #d0d9e4;
+}
+
+.card-box h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ---- Family Info Grid ---- */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.info-grid > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  border-right: 1px solid #f1f5f9;
+  padding-right: 1.5rem;
+}
+
+.info-grid > div:last-child {
+  border-right: none;
+}
+
+.info-grid label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-grid p {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-top: 0.1rem;
+}
+
+/* ---- Quick Actions ---- */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+}
+
+.quick-actions button {
+  padding: 0.8rem 1.2rem;
+  border: 1.5px solid #e9edf2;
+  border-radius: 14px;
+  background: #fafcff;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: inherit;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.quick-actions button:hover {
+  background: #0f3b5e;
+  color: #ffffff;
+  border-color: #0f3b5e;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(15, 59, 94, 0.15);
+}
+
+.quick-actions button:active {
+  transform: scale(0.97);
+}
+
+/* ---- Recent Activity ---- */
+.card-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-box ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #0f172a;
+  border-left: 3px solid transparent;
+}
+
+.card-box ul li:hover {
+  background: #f1f5f9;
+  border-left-color: #0f3b5e;
+}
+
+.card-box ul li::before {
+  content: "●";
+  color: #2a9d8f;
+  font-size: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   DASHBOARD CARDS (Action Cards)
+   ============================================ */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.dashboard-cards .card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.8rem 1.8rem 1.5rem;
+  border: 1px solid #e9edf2;
+  transition: all 0.35s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-cards .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0f3b5e, #2a9d8f);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.dashboard-cards .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.1);
+  border-color: #d0d9e4;
+}
+
+.dashboard-cards .card:hover::before {
+  opacity: 1;
+}
+
+.dashboard-cards .card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-cards .card p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+  flex: 1;
+  margin-bottom: 1.2rem;
+}
+
+.dashboard-cards .card button {
+  padding: 0.6rem 1.8rem;
+  border: none;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-family: inherit;
+  align-self: flex-start;
+}
+
+.dashboard-cards .card button:hover {
+  background: #0f3b5e;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 59, 94, 0.2);
+}
+
+.dashboard-cards .card button:active {
+  transform: scale(0.97);
+}
+
+/* Individual card accent colors */
+.dashboard-cards .card:nth-child(1):hover::before {
+  background: linear-gradient(90deg, #0f3b5e, #1a6d8a);
+}
+.dashboard-cards .card:nth-child(2):hover::before {
+  background: linear-gradient(90deg, #2a9d8f, #21867a);
+}
+.dashboard-cards .card:nth-child(3):hover::before {
+  background: linear-gradient(90deg, #e76f51, #d45a3a);
+}
+.dashboard-cards .card:nth-child(4):hover::before {
+  background: linear-gradient(90deg, #f4a261, #e8914a);
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+.root-dashboard h2 {
+  font-size: 1.5rem;
+  color: #64748b;
+  text-align: center;
+  padding: 4rem 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.root-dashboard h2::before {
+  content: "⏳";
+  font-size: 2rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1200px) {
+  .root-dashboard {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .info-grid > div {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .quick-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .root-dashboard {
+    padding: 1rem 1.2rem;
+  }
+
+  .root-dashboard h1 {
+    font-size: 1.6rem;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  .stats-card {
+    padding: 1rem;
+  }
+
+  .stats-card .stats-icon {
+    font-size: 1.6rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .stats-card .stats-info h2 {
+    font-size: 1.5rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card-box {
+    padding: 1.2rem 1.2rem;
+  }
+
+  .dashboard-cards .card {
+    padding: 1.2rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .root-dashboard {
+    padding: 0.8rem 0.8rem;
+  }
+
+  .root-dashboard h1 {
+    font-size: 1.3rem;
+  }
+
+  .stats-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .stats-card {
+    padding: 0.8rem;
+  }
+
+  .stats-card .stats-icon {
+    font-size: 1.3rem;
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .stats-card .stats-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .stats-card .stats-info h4 {
+    font-size: 0.65rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-actions button {
+    padding: 0.7rem;
+    font-size: 0.8rem;
+  }
+
+  .card-box {
+    padding: 1rem 0.8rem;
+    border-radius: 16px;
+  }
+
+  .dashboard-cards .card {
+    padding: 1rem 0.8rem;
+    border-radius: 16px;
+  }
+
+  .dashboard-cards .card button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .root-dashboard .welcome {
+    font-size: 0.85rem;
+    padding-bottom: 0.8rem;
+  }
+}

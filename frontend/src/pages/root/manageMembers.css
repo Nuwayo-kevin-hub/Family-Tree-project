@@ -1,0 +1,622 @@
+/* ============================================
+   MANAGE MEMBERS – Full Page Professional
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.manage-members {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f4f8;
+  min-height: 100vh; /* take full page height */
+  padding: 2rem 2.5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   PAGE HEADER
+   ============================================ */
+.page-header {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.8rem 2rem;
+  border: 1px solid #e9edf2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  margin: 0 0 0.1rem 0;
+}
+
+.page-header p {
+  color: #64748b;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ============================================
+   UPDATE FORM CARD
+   ============================================ */
+.member-form-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid #e9edf2;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+  animation: slideDown 0.3s ease;
+  flex-shrink: 0;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 0.8rem;
+}
+
+.form-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.form-header p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0.1rem 0 0 0;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0 0.4rem;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #ef4444;
+}
+
+/* ---- Form Grid ---- */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #e9edf2;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fafcff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+  color: #0f172a;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #0f3b5e;
+  box-shadow: 0 0 0 4px rgba(15, 59, 94, 0.06);
+}
+
+/* ---- Form Actions ---- */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.8rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid #e9edf2;
+  justify-content: flex-end;
+}
+
+.form-actions button {
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.cancel-btn {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.cancel-btn:hover {
+  background: #e2e8f0;
+}
+
+.save-btn {
+  background: #0f3b5e;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(15, 59, 94, 0.15);
+}
+
+.save-btn:hover:not(:disabled) {
+  background: #1a4f6e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 59, 94, 0.2);
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   MEMBERS TABLE
+   ============================================ */
+.members-table {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e9edf2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  overflow-x: auto;
+  flex: 1; /* take remaining space */
+}
+
+.members-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  min-width: 700px;
+}
+
+/* ---- Table Header ---- */
+.members-table thead {
+  background: #f8fafc;
+  border-bottom: 2px solid #e9edf2;
+}
+
+.members-table thead th {
+  padding: 1rem 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #64748b;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  background: #f8fafc;
+  z-index: 1;
+}
+
+/* ---- Table Body ---- */
+.members-table tbody tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s ease;
+}
+
+.members-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.members-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.members-table tbody td {
+  padding: 0.9rem 1.2rem;
+  vertical-align: middle;
+  color: #0f172a;
+}
+
+/* ---- Role Badge ---- */
+.role {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: #e9edf2;
+  color: #475569;
+}
+
+/* You can enhance by adding dynamic classes in JSX:
+   <span className={`role role-${member.role.toLowerCase().replace(/_/g, "-")}`}>
+     {member.role}
+   </span>
+   Then add:
+   .role-role-root-admin { background: #0f3b5e; color: #fff; }
+   .role-role-sub-root-admin { background: #2a9d8f; color: #fff; }
+   .role-role-branch-admin { background: #f4a261; color: #fff; }
+   .role-role-member { background: #e9edf2; color: #475569; }
+*/
+
+/* ---- Status Badges ---- */
+.status-alive {
+  display: inline-block;
+  padding: 0.15rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #e6f7ed;
+  color: #2a9d8f;
+}
+
+.status-deceased {
+  display: inline-block;
+  padding: 0.15rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: #fef3e8;
+  color: #e76f51;
+}
+
+/* ---- Action Buttons ---- */
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.table-actions button {
+  padding: 0.3rem 0.9rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.view-btn {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.view-btn:hover {
+  background: #0f3b5e;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 59, 94, 0.15);
+}
+
+.delete-btn {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.members-table tbody tr td[colspan] {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.members-table tbody tr td[colspan]::before {
+  content: "👤";
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.4;
+}
+
+/* ============================================
+   LOADING STATE
+   ============================================ */
+.manage-members h2 {
+  font-size: 1.5rem;
+  color: #64748b;
+  text-align: center;
+  padding: 4rem 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.manage-members h2::before {
+  content: "⏳";
+  font-size: 2rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .manage-members {
+    padding: 1.5rem 2rem;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 820px) {
+  .manage-members {
+    padding: 1rem 1.2rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  .members-table table {
+    font-size: 0.85rem;
+    min-width: 600px;
+  }
+
+  .members-table thead th {
+    padding: 0.8rem 0.8rem;
+    font-size: 0.65rem;
+  }
+
+  .members-table tbody td {
+    padding: 0.7rem 0.8rem;
+  }
+
+  .table-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+
+  .table-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .manage-members {
+    padding: 0.8rem 0.6rem;
+  }
+
+  .page-header {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .page-header p {
+    font-size: 0.85rem;
+  }
+
+  .member-form-card {
+    padding: 1.2rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .members-table {
+    border-radius: 16px;
+  }
+
+  .members-table table {
+    font-size: 0.8rem;
+    min-width: 500px;
+  }
+
+  .members-table thead th {
+    padding: 0.6rem 0.6rem;
+    font-size: 0.6rem;
+  }
+
+  .members-table tbody td {
+    padding: 0.6rem 0.6rem;
+  }
+
+  .role {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.6rem;
+  }
+
+  .status-alive,
+  .status-deceased {
+    font-size: 0.6rem;
+    padding: 0.1rem 0.5rem;
+  }
+
+  .table-actions button {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .members-table tbody tr td[colspan] {
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .members-table tbody tr td[colspan]::before {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .manage-members {
+    padding: 0.6rem 0.4rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .members-table table {
+    font-size: 0.7rem;
+    min-width: 420px;
+  }
+
+  .members-table thead th {
+    padding: 0.4rem 0.4rem;
+    font-size: 0.55rem;
+  }
+
+  .members-table tbody td {
+    padding: 0.4rem 0.4rem;
+  }
+
+  .role {
+    font-size: 0.55rem;
+    padding: 0.1rem 0.4rem;
+  }
+
+  .table-actions button {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* ============================================
+   SEARCH BAR
+   ============================================ */
+
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.header-search .search-input {
+    padding: 0.5rem 1rem;
+    border: 1.5px solid #e9edf2;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background: #fafcff;
+    transition: all 0.2s ease;
+    width: 220px;
+    color: #0f172a;
+}
+
+.header-search .search-input:focus {
+    outline: none;
+    border-color: #0f3b5e;
+    box-shadow: 0 0 0 4px rgba(15, 59, 94, 0.06);
+    background: #ffffff;
+}
+
+.header-search .search-input::placeholder {
+    color: #aab4c2;
+}
+
+.header-search .search-result-count {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ---- Responsive Search ---- */
+@media (max-width: 820px) {
+    .header-search {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .header-search .search-input {
+        width: 100%;
+        flex: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-search .search-input {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .header-search .search-result-count {
+        font-size: 0.7rem;
+    }
+}

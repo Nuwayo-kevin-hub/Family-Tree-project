@@ -1,0 +1,214 @@
+/* members.css */
+
+.subroot-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ---- Header ---- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.page-header p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0.25rem 0 0;
+}
+
+/* ---- Toolbar (search) ---- */
+.toolbar {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toolbar input {
+  padding: 0.6rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  width: 260px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.toolbar input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.toolbar input::placeholder {
+  color: #94a3b8;
+}
+
+/* ---- Loading & Empty states ---- */
+.loading,
+.empty-card {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #64748b;
+  font-size: 1.1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.empty-card {
+  border: 1px dashed #cbd5e1;
+}
+
+/* ---- Table Card ---- */
+.table-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  border: 1px solid #eef2f6;
+}
+
+.table-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.table-card thead {
+  background: #f8fafc;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.table-card th {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.table-card td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.table-card tbody tr:hover {
+  background-color: #fafcff;
+}
+
+.table-card tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---- Role pill ---- */
+.role-pill {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+}
+
+/* You can add additional role-specific colors if needed */
+.role-pill[data-role="admin"] {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+.role-pill[data-role="member"] {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+/* ---- Action buttons ---- */
+.table-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.table-actions button {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: #eef2f6;
+  color: #1e293b;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.table-actions button:hover {
+  background: #e2e8f0;
+}
+
+.table-actions button:active {
+  transform: scale(0.96);
+}
+
+.table-actions button.danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.table-actions button.danger:hover {
+  background: #fecaca;
+}
+
+/* ---- Responsive adjustments ---- */
+@media (max-width: 768px) {
+  .subroot-page {
+    padding: 1rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .toolbar {
+    justify-content: stretch;
+  }
+
+  .toolbar input {
+    width: 100%;
+  }
+
+  .table-card table {
+    font-size: 0.85rem;
+  }
+
+  .table-card th,
+  .table-card td {
+    padding: 0.6rem 0.7rem;
+  }
+
+  .table-actions {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .table-actions button {
+    width: 100%;
+    text-align: center;
+  }
+}

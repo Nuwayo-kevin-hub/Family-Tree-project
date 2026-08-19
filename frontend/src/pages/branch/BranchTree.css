@@ -1,0 +1,329 @@
+/* BranchTree.css – SubRootFamilyTree */
+
+.branch-tree-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ---- Header ---- */
+.branch-tree-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.branch-tree-header .branch-tree-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #3b82f6;
+  background: #eff6ff;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  margin-bottom: 0.4rem;
+}
+
+.branch-tree-header h1 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0 0 0.2rem;
+}
+
+.branch-tree-header p {
+  color: #64748b;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ---- Error Alert ---- */
+.branch-tree-error {
+  padding: 0.8rem 1rem;
+  background: #fee2e2;
+  color: #b91c1c;
+  border-left: 4px solid #ef4444;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* ---- Tabs (3 cards) ---- */
+.branch-tree-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+
+.branch-tree-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.2rem;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  text-align: left;
+  font: inherit;
+}
+
+.branch-tree-tab:hover {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+}
+
+.branch-tree-tab.active {
+  border-color: #3b82f6;
+  background: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.branch-tree-tab span {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.branch-tree-tab div {
+  display: flex;
+  flex-direction: column;
+}
+
+.branch-tree-tab strong {
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.branch-tree-tab small {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.branch-tree-tab.active small {
+  color: #3b82f6;
+}
+
+/* ---- Content Section ---- */
+.branch-tree-content {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem 2rem 2rem;
+}
+
+/* ---- Section Header (with count badge) ---- */
+.branch-tree-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.branch-tree-section-header div {
+  display: flex;
+  flex-direction: column;
+}
+
+.branch-tree-section-header span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 0.2rem;
+}
+
+.branch-tree-section-header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.branch-tree-section-header strong {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3b82f6;
+  background: #eff6ff;
+  padding: 0.2rem 1rem;
+  border-radius: 20px;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+/* ---- Member Grid ---- */
+.branch-tree-members {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+/* ---- Member Card ---- */
+.branch-tree-member {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1rem;
+  background: #fafcff;
+  border: 1px solid #eef2f6;
+  border-radius: 10px;
+  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.branch-tree-member:hover {
+  background: #ffffff;
+  border-color: #dbeafe;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.branch-tree-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.branch-tree-member-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.branch-tree-member-info strong {
+  font-size: 0.95rem;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.branch-tree-member-info span {
+  font-size: 0.75rem;
+  color: #3b82f6;
+  background: #eff6ff;
+  padding: 0.1rem 0.6rem;
+  border-radius: 12px;
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 0.15rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.branch-tree-member-info small {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.1rem;
+}
+
+/* ---- Empty State ---- */
+.branch-tree-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #64748b;
+}
+
+.branch-tree-empty-icon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.branch-tree-empty h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0 0 0.2rem;
+}
+
+.branch-tree-empty p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+/* ---- Loading State ---- */
+.branch-tree-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  color: #64748b;
+  gap: 1rem;
+}
+
+.branch-tree-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.branch-tree-loading p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+@media (max-width: 900px) {
+  .branch-tree-page {
+    padding: 1.5rem 1rem;
+  }
+  .branch-tree-content {
+    padding: 1.2rem 1.2rem 1.5rem;
+  }
+  .branch-tree-tabs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .branch-tree-tabs {
+    grid-template-columns: 1fr;
+  }
+  .branch-tree-tab {
+    padding: 0.8rem 1rem;
+  }
+  .branch-tree-members {
+    grid-template-columns: 1fr;
+  }
+  .branch-tree-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .branch-tree-section-header strong {
+    align-self: flex-start;
+  }
+}
