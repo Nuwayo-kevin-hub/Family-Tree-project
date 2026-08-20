@@ -8,3 +8,4 @@ backend/uploads/*
 frontend/dist/
 frontend/.vite/
 *.log
+frontend/.env
