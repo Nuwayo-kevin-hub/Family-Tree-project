@@ -11,7 +11,7 @@ export default function BranchLayout() {
 
             <div className="branch-main">
 
-                <Navbar />
+                <NavBar />
 
                 <main className="branch-content">
                     <Outlet />
