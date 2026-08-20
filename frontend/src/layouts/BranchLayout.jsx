@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import SideBar from "../components/SideBar";
-import Navbar from "../components/Navbar";
+import NavBar from "../components/NavBar";
 import "./branchLayout.css";
 
 export default function BranchLayout() {
